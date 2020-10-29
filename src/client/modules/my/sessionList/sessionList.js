@@ -5,6 +5,7 @@ export default class SessionList extends LightningElement {
     connectedCallback() {
         getSessions().then((result) => {
             this.sessions = this.allSessions = result;
+            console.log('Sessions', this.sessions);
         });
     }
     handleSearchKeyInput(event) {
