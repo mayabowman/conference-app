@@ -1,6 +1,6 @@
 import { LightningElement, api } from 'lwc';
 import { getSession } from 'data/sessionService';
-export default class SessionDatilas extends LightningElement {
+export default class SessionDetails extends LightningElement {
     session;
     @api
     set sessionId(id) {
@@ -9,5 +9,13 @@ export default class SessionDatilas extends LightningElement {
     }
     get sessionId() {
         return this._sessionId;
+    }
+    handleSessionsClick() {
+        const navigateEvent = new CustomEvent('navigate', {
+            detail: {
+                state: 'list'
+            }
+        });
+        this.dispatchEvent(navigateEvent);
     }
 }
